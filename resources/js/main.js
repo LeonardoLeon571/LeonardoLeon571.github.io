@@ -47,7 +47,7 @@ function quizFail() {
 	screenSetup(SCR_NAY);
 }
 
-function displayQuestion(questionId) {
+function displayQuestion(questionId, initial=false) {
 	
 	var question = QUESTION_LIST[questionId];
 	if (question.isYes) {
@@ -61,7 +61,12 @@ function displayQuestion(questionId) {
 		$("#quizNo").attr("onclick","quizSuccess()");
 	}
 	$("#questionScreenIndex").val(questionId);
-	$("#questionScreenText").html(question.display);
+	if (!initial) {
+		$("#questionScreenText").hide().html(question.display).fadeIn(1500);
+	}
+	else {
+		$("#questionScreenText").html(question.display);
+	}
 }
 
 function screenSetup(SCR) {
@@ -104,7 +109,7 @@ function screenSetup(SCR) {
 }
 
 function startQuizMode() {
-	displayQuestion(0);
+	displayQuestion(0, true);
 	screenSetup(SCR_QUIZ);
 }
 
