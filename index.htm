@@ -82,12 +82,13 @@
 						<br>
 						<h3 class="header center uq-purple-text">Check your eligibility</h1>
 						<div class="row center">
-							<h5 class="header col s12 light">{QUESTION_TEXT}</h5>
+							<input id="questionScreenIndex" hidden />
+							<h5 id="questionScreenText" class="header col s12 light">{QUESTION_TEXT}</h5>
 						</div>
 						<div class="row center" style="margin-top:50px;">
-							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple" onclick="cancelQuizMode()" style="margin-right:30px;">Cancel</a>
-							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple">Yes</a>
-							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple">No</a>
+							<a href="#" id="quizCancel" class="btn-large waves-effect waves-light uq-purple" onclick="cancelQuizMode()" style="margin-right:30px;">Cancel</a>
+							<a href="#" id="quizYes" class="btn-large waves-effect waves-light uq-purple">Yes</a>
+							<a href="#" id="quizNo" class="btn-large waves-effect waves-light uq-purple">No</a>
 						</div>
 						<br>
 						<br>
@@ -118,7 +119,7 @@
 									<h2 class="center uq-purple-text">
 										<i class="material-icons">contact_support</i>
 									</h2>
-									<h5 class="center">What is this?</h5>
+									<h5 class="center">Saves lives?</h5>
 									<p class="light"> Your gut microbiome is often not a subject most people wish to discuss - that's because it's your digestive system and ultimately, your poo! Your gut 'microbiome' contains healthy microscopic cells that are essential for our daily lives and without them, people every day face horrible medical issues. </p>
 								</div>
 							</div>

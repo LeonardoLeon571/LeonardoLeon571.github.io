@@ -6,36 +6,63 @@ var SCR_YAY  = 3;
 var QUESTION_LIST = [
 
 	{
-		"id": 0,
 		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"isYes": true
 	},
 	{
-		"id": 1,
-		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"display": "Have you been diagnosed with irritable bowel syndome?",
+		"isYes": false
 	},
 	{
-		"id": 2,
-		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"display": "What about inflammatory bowel disease?",
+		"isYes": false
 	},
 	{
-		"id": 3,
-		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"display": "Do you have (or have you ever had) bowel cancer?",
+		"isYes": false
 	},
 	{
-		"id": 4,
-		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"display": "Did you live in the UK between 1980 and 1996 (6 months or more)?",
+		"isYes": false
 	},
 	{
-		"id": 5,
-		"display": "Are you between the ages of 18 and 50?",
-		"correct": true
+		"display": "In the last year, have you worked in a hospital where you've been in contact with patients or their waste?",
+		"isYes": false
 	}
 ]
+
+function quizSuccess() {
+	
+	var currentQuestionIndex = Number($("#questionScreenIndex").val());
+	var nextQuestionIndex = currentQuestionIndex + 1;
+	if (currentQuestionIndex == QUESTION_LIST.length - 1) {
+		screenSetup(SCR_YAY);
+	}
+	else {
+		displayQuestion(nextQuestionIndex);
+	}
+}
+
+function quizFail() {
+	screenSetup(SCR_NAY);
+}
+
+function displayQuestion(questionId) {
+	
+	var question = QUESTION_LIST[questionId];
+	if (question.isYes) {
+		
+		$("#quizYes").attr("onclick","quizSuccess()");
+		$("#quizNo").attr("onclick","quizFail()");
+	}
+	else {
+		
+		$("#quizYes").attr("onclick","quizFail()");
+		$("#quizNo").attr("onclick","quizSuccess()");
+	}
+	$("#questionScreenIndex").val(questionId);
+	$("#questionScreenText").html(question.display);
+}
 
 function screenSetup(SCR) {
 	
@@ -77,6 +104,7 @@ function screenSetup(SCR) {
 }
 
 function startQuizMode() {
+	displayQuestion(0);
 	screenSetup(SCR_QUIZ);
 }
 
