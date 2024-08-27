@@ -1,10 +1,162 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Save a Life</title>
-    </head>
-    <body>
-        <h1>Microbiome</h1>
-    </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="resources/css/main.css">
+		<link rel="stylesheet" href="resources/css/materialize.min.css">
+		<title>Donating Saves Lives!</title>
+	</head>
+	<body>
+		<header>
+			<nav class="uq-purple lighten-1" role="navigation">
+				<div class="nav-wrapper container">
+					<a id="logo-container" href="index.htm" class="brand-logo">
+						<img src="resources/img/brand.png" />
+					</a>
+					<ul class="right hide-on-med-and-down">
+						<li>
+							<a href="https://www.lifeblood.com.au/microbiome" target="_blank">Read More</a>
+						</li>
+						<li>
+							<a href="contact.htm">Contact Us</a>
+						</li>
+					</ul>
+					<ul id="nav-mobile" class="sidenav">
+						<li>
+							<a href="https://www.lifeblood.com.au/microbiome" target="_blank">Read More</a>
+						</li>
+						<li>
+							<a href="contact.htm">Contact Us</a>
+						</li>
+					</ul>
+					<a href="#" data-target="nav-mobile" class="sidenav-trigger">
+						<i class="material-icons">menu</i>
+					</a>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div id="eligibleScreen" style="display:none;">
+				<div class="section no-pad-bot valign-wrapper" id="index-banner">
+					<div class="container">
+						<br>
+						<br>
+						<h3 class="header center green-text">Yay! :)</h1>
+						<div class="row center">
+							<h5 class="header col s12 light">From the answers you've provided to us, you're eligible to donate!</h5>
+							<h5 class="header col s12 light">You may be able to participate to both an emerging field of science and to the betterment of peoples' lives</h5>
+						</div>
+						<div class="row center" style="margin-top:50px;">
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple" onclick="cancelQuizMode()">Back to home</a>
+							<a href="https://www.lifeblood.com.au/microbiome" target="_blank" id="download-button" class="btn-large waves-effect waves-light uq-purple">Find out more</a>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div id="ineligibleScreen" style="display:none;">
+				<div class="section no-pad-bot valign-wrapper" id="index-banner">
+					<div class="container">
+						<br>
+						<br>
+						<h3 class="header center red-text">Sorry :(</h1>
+						<div class="row center">
+							<h5 class="header col s12 light">From the answers you've provided to us, you're not eligible to donate - but that's okay!</h5>
+							<h5 class="header col s12 light">You might be eligible to donate blood if you'd still like to contribute :)</h5>
+						</div>
+						<div class="row center" style="margin-top:50px;">
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple" onclick="cancelQuizMode()">Back to home</a>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div id="questionScreen" style="display:none;">
+				<div class="section no-pad-bot valign-wrapper" id="index-banner">
+					<div class="container">
+						<br>
+						<br>
+						<h3 class="header center uq-purple-text">Check your eligibility</h1>
+						<div class="row center">
+							<h5 class="header col s12 light">{QUESTION_TEXT}</h5>
+						</div>
+						<div class="row center" style="margin-top:50px;">
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple" onclick="cancelQuizMode()" style="margin-right:30px;">Cancel</a>
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple">Yes</a>
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple">No</a>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div id="startupScreen" style="display:block;">
+				<div class="section no-pad-bot" id="index-banner">
+					<div class="container">
+						<br>
+						<br>
+						<h1 class="header center uq-purple-text">Donating Saves Lives!</h1>
+						<div class="row center">
+							<h5 class="header col s12 light">Could you be a microbiome donor?</h5>
+						</div>
+						<div class="row center">
+							<a href="#" id="download-button" class="btn-large waves-effect waves-light uq-purple" onclick="startQuizMode()">Check Eligbility</a>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="container">
+					<div class="section">
+						<div class="row">
+							<div class="col s12 m4">
+								<div class="icon-block">
+									<h2 class="center uq-purple-text">
+										<i class="material-icons">contact_support</i>
+									</h2>
+									<h5 class="center">What is this?</h5>
+									<p class="light"> Your gut microbiome is often not a subject most people wish to discuss - that's because it's your digestive system and ultimately, your poo! Your gut 'microbiome' contains healthy microscopic cells that are essential for our daily lives and without them, people every day face horrible medical issues. </p>
+								</div>
+							</div>
+							<div class="col s12 m4">
+								<div class="icon-block">
+									<h2 class="center uq-purple-text">
+										<i class="material-icons">accessibility_new</i>
+									</h2>
+									<h5 class="center">How can I help?</h5>
+									<p class="light">'Stool samples' are donations of your own poo or 'faeces'. Your body sheds these bacteria all the time and as such, by introducing a sample of healthy bacteria into someone else's gut, you are directly giving life to that person.</p>
+								</div>
+							</div>
+							<div class="col s12 m4">
+								<div class="icon-block">
+									<h2 class="center uq-purple-text">
+										<i class="material-icons">volunteer_activism</i>
+									</h2>
+									<h5 class="center">Am I eligible?</h5>
+									<p class="light">We've prepared a simple quiz to complete! You can check it out above :)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>
+		</main>
+		<footer class="page-footer uq-purple">
+			<div class="footer-copyright">
+				<div class="container">
+					<span> Copyright (c) 2024 BRH Media </span>
+				</div>
+			</div>
+		</footer>
+		<!-- LOCATED AT END TO ASSIST WITH LOADING -->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="resources/js/materialize.min.js"></script>
+		<script src="resources/js/main.js"></script>
+	</body>
 </html>
